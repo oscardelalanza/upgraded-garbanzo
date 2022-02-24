@@ -1,7 +1,12 @@
+import { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import './styles/header.css'
 
 const App = () => {
+  const [photos, setPhotos] = useState([])
+
+  console.log(photos)
+
   return (
     <div>
       <header>
@@ -13,7 +18,7 @@ const App = () => {
                 'Authorization': 'Client-ID xhVtSm4YruJ-1iZT6DQRj-ANZbnspacbLQgrkewdg9g'
                 }})
             const data = await response.json()
-            console.log(data)
+            setPhotos(data.results)
           }}
         >
           <Form>
